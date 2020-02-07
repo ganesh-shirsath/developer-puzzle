@@ -33,7 +33,9 @@ describe('AppComponent', () => {
   });
 
   it('should render title in a h1 tag', () => {
+    fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
+    app.welComeMsg = APP_CONST.GREETING_MSG;
     expect(compiled.querySelector('h1').textContent).toContain(
       APP_CONST.GREETING_MSG
     );

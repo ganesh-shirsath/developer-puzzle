@@ -1,9 +1,3 @@
-<google-chart
-  *ngIf="chart?.data?.length > 0"
-  [title]="chart?.title"
-  [type]="chart?.type"
-  [data]="chart?.data"
-  [columnNames]="chart?.columnNames"
-  [options]="chart?.options"
->
+<google-chart *ngIf="chart?.data?.length > 0" [title]="chart?.title" [type]="chart?.type" [data]="chart?.data" [columnNames]="chart?.columnNames"
+  [options]="chart?.options">
 </google-chart>

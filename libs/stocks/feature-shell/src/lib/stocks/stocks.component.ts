@@ -31,7 +31,7 @@ export class StocksComponent implements OnInit {
     });
   }
 
-  public ngOnInit() {}
+  public ngOnInit() { }
 
   public fetchQuote() {
     if (this.stockPickerForm.valid) {

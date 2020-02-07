@@ -3,7 +3,8 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnInit
+  OnInit,
+  OnDestroy
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IChartData } from '../chart/interfaces/chart.interface';
@@ -15,18 +16,18 @@ import { takeWhile } from 'rxjs/operators';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, OnDestroy {
   @Input() data$: Observable<(string | number)[][]>;
   private isComponentActive = true;
   public chart: IChartData;
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.chart = CHART_DATA_MOCK;
     this.data$.pipe(takeWhile(() => this.isComponentActive))
-    .subscribe(newData => (
-      this.chart.data = newData
-    ));
+      .subscribe(newData => (
+        this.chart.data = newData
+      ));
   }
 
   public ngOnDestroy(): void {

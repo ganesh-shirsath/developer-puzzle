@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { APP_CONST } from 'apps/stocks/src/app/constants/app.const';
+import { APP_CONST } from '../app/constants/app.const';
 
 @Component({
   selector: 'coding-challenge-root',
