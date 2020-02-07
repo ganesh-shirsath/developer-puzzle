@@ -3,37 +3,34 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnInit
+  OnInit,
+  OnDestroy
 } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IChartData } from '../chart/interfaces/chart.interface';
+import { CHART_DATA_MOCK } from '../chart/mocks/chart-data-mock.spec';
+import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'coding-challenge-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent implements OnInit {
-  @Input() data$: Observable<any>;
-  chartData: any;
-
-  chart: {
-    title: string;
-    type: string;
-    data: any;
-    columnNames: string[];
-    options: any;
-  };
-  constructor(private cd: ChangeDetectorRef) {}
+export class ChartComponent implements OnInit, OnDestroy {
+  @Input() data$: Observable<(string | number)[][]>;
+  private isComponentActive = true;
+  public chart: IChartData;
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.chart = {
-      title: '',
-      type: 'LineChart',
-      data: [],
-      columnNames: ['period', 'close'],
-      options: { title: `Stock price`, width: '600', height: '400' }
-    };
+    this.chart = CHART_DATA_MOCK;
+    this.data$.pipe(takeWhile(() => this.isComponentActive))
+      .subscribe(newData => (
+        this.chart.data = newData
+      ));
+  }
 
-    this.data$.subscribe(newData => (this.chartData = newData));
+  public ngOnDestroy(): void {
+    this.isComponentActive = false;
   }
 }

@@ -1,0 +1,125 @@
+Arguments: 
+  C:\Users\ganesh.shirsath\AppData\Roaming\npm\node_modules\node\bin\node.exe C:\Users\ganesh.shirsath\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Program Files\AdoptOpenJDK\jdk-11.0.1\bin;C:\Program Files\AdoptOpenJDK\jre-8.0.202.08\bin;C:\Users\ganesh.shirsath\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Citrix\System32\;C:\Program Files\Citrix\ICAService\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Symantec\VIP Access Client\;C:\Users\ganesh.shirsath\AppData\Roaming\npm;C:\Program Files\PuTTY\;C:\WINDOWS\System32\OpenSSH\;C:\Users\ganesh.shirsath\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
+
+Yarn version: 
+  1.10.1
+
+Node version: 
+  12.7.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (C:\Users\ganesh.shirsath\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:120793:19)
+      at Object.onceWrapper (events.js:291:20)
+      at ClientRequest.emit (events.js:203:13)
+      at TLSSocket.emitRequestTimeout (_http_client.js:680:40)
+      at Object.onceWrapper (events.js:291:20)
+      at TLSSocket.emit (events.js:203:13)
+      at TLSSocket.Socket._onTimeout (net.js:434:8)
+      at listOnTimeout (internal/timers.js:531:17)
+      at processTimers (internal/timers.js:475:7)
+
+npm manifest: 
+  {
+    "name": "coding-challenge",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+      "ng": "ng",
+      "start": "ng serve",
+      "serve:stocks": "ng serve stocks",
+      "serve:stocks-api": "ng run stocks-api:serve",
+      "build": "ng build",
+      "test": "ng test",
+      "lint": "./node_modules/.bin/nx lint && ng lint",
+      "e2e": "ng e2e",
+      "affected:apps": "./node_modules/.bin/nx affected:apps",
+      "affected:libs": "./node_modules/.bin/nx affected:libs",
+      "affected:build": "./node_modules/.bin/nx affected:build",
+      "affected:e2e": "./node_modules/.bin/nx affected:e2e",
+      "affected:test": "./node_modules/.bin/nx affected:test",
+      "affected:lint": "./node_modules/.bin/nx affected:lint",
+      "affected:dep-graph": "./node_modules/.bin/nx affected:dep-graph",
+      "affected": "./node_modules/.bin/nx affected",
+      "format": "./node_modules/.bin/nx format:write",
+      "format:write": "./node_modules/.bin/nx format:write",
+      "format:check": "./node_modules/.bin/nx format:check",
+      "update": "ng update @nrwl/schematics",
+      "update:check": "ng update",
+      "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
+      "dep-graph": "./node_modules/.bin/nx dep-graph",
+      "help": "./node_modules/.bin/nx help"
+    },
+    "private": true,
+    "dependencies": {
+      "@angular/animations": "^7.0.0",
+      "@angular/cdk": "~7.3.7",
+      "@angular/common": "^7.0.0",
+      "@angular/compiler": "^7.0.0",
+      "@angular/core": "^7.0.0",
+      "@angular/forms": "^7.0.0",
+      "@angular/http": "^7.0.0",
+      "@angular/material": "^7.3.7",
+      "@angular/platform-browser": "^7.0.0",
+      "@angular/platform-browser-dynamic": "^7.0.0",
+      "@angular/platform-server": "^7.0.0",
+      "@angular/router": "^7.0.0",
+      "@nestjs/common": "5.5.0",
+      "@nestjs/core": "5.5.0",
+      "@ngrx/effects": "^7.4.0",
+      "@ngrx/entity": "^7.2.0",
+      "@ngrx/router-store": "7.2.0",
+      "@ngrx/store": "^7.4.0",
+      "@nrwl/nx": "7.7.2",
+      "angular-google-charts": "^0.1.3",
+      "core-js": "^2.5.4",
+      "date-fns": "^1.30.1",
+      "hammerjs": "^2.0.8",
+      "hapi": "^18.1.0",
+      "lodash": "^4.17.11",
+      "lodash-es": "^4.17.11",
+      "rxjs": "6.3.3",
+      "zone.js": "^0.8.26"
+    },
+    "devDependencies": {
+      "@angular-devkit/build-angular": "~0.13.0",
+      "@angular/cli": "7.3.1",
+      "@angular/compiler-cli": "~7.2.0",
+      "@angular/language-service": "^7.0.0",
+      "@nestjs/schematics": "5.11.2",
+      "@nestjs/testing": "5.5.0",
+      "@ngrx/store-devtools": "^7.2.0",
+      "@nrwl/builders": "7.7.2",
+      "@nrwl/schematics": "7.7.2",
+      "@types/date-fns": "^2.6.0",
+      "@types/hapi": "^18.0.1",
+      "@types/jest": "24.0.9",
+      "@types/jquery": "3.3.6",
+      "@types/lodash-es": "^4.17.3",
+      "@types/node": "~8.9.4",
+      "codelyzer": "~4.5.0",
+      "cypress": "3.1.0",
+      "dotenv-cli": "^2.0.0",
+      "jest": "24.1.0",
+      "jest-preset-angular": "7.0.0",
+      "ngrx-store-freeze": "0.2.4",
+      "prettier": "1.15.2",
+      "ts-jest": "24.0.0",
+      "ts-node": "~7.0.0",
+      "tslint": "~5.11.0",
+      "typescript": "3.2.2",
+      "webpack-cli": "^3.3.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
