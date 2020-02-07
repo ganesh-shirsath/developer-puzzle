@@ -1,5 +1,7 @@
 <google-chart
-  *ngIf="data"
+  id="stocks-graph"
+  aria-label="Google chart"
+  *ngIf="chartData"
   [title]="chart.title"
   [type]="chart.type"
   [data]="chartData"
