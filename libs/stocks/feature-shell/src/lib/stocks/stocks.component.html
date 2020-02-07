@@ -2,7 +2,7 @@
   <mat-form-field>
     <input
       matInput
-      placeholder="Symbol e.g AAPL"
+      placeholder="{{formPlaceholders?.SYMBOL_PLACEHOLDER}}"
       formControlName="symbol"
       value=""
     />
@@ -12,13 +12,13 @@
           !stockPickerForm.get('symbol').valid &&
           stockPickerForm.get('symbol').touched
         "
-        >Please enter a symbol</span
+        >{{formErrors.SYMBOL_REQUIRED}}</span
       >
     </mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Favorite time period</mat-label>
+    <mat-label>{{formLabels.TIME_PERIOD_LABEL}}</mat-label>
     <mat-select formControlName="period">
       <mat-option
         *ngFor="let timePeriod of timePeriods"
