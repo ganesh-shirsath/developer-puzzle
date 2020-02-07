@@ -1,9 +1,4 @@
-<google-chart
-  *ngIf="data"
-  [title]="chart.title"
-  [type]="chart.type"
-  [data]="chartData"
-  [columnNames]="chart.columnNames"
-  [options]="chart.options"
->
+<google-chart *ngIf="chart?.data?.length > 0" [title]="chart?.title" [type]="chart?.type" [data]="chart?.data" [columnNames]="chart?.columnNames"
+  [options]="chart?.options">
 </google-chart>
+<div *ngIf="chart?.data?.length <= 0 && isStocksDataFound"> {{chartError.NO_RECOURD_FOUND}} </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { FetchPriceQuery } from './price-query.actions';
+import { FetchPriceQuery, FilterQuote } from './price-query.actions';
 import { PriceQueryPartialState } from './price-query.reducer';
 import { getSelectedSymbol, getAllPriceQueries } from './price-query.selectors';
 import { map, skip } from 'rxjs/operators';
@@ -20,5 +20,9 @@ export class PriceQueryFacade {
 
   fetchQuote(symbol: string, period: string) {
     this.store.dispatch(new FetchPriceQuery(symbol, period));
+  }
+
+  public fetchFilterQuoteByDate(fromDate: Date, toDate: Date) {
+    this.store.dispatch(new FilterQuote(fromDate, toDate));
   }
 }
