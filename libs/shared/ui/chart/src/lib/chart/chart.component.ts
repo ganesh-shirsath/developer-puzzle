@@ -21,15 +21,15 @@ export class ChartComponent implements OnInit, OnDestroy {
   // tslint:disable-next-line:no-inferrable-types
   private isComponentActive: boolean = true;
   public chart: IChartData;
-  constructor() {}
+  constructor() { }
 
   public ngOnInit() {
     this.chart = CHART_DATA_MOCK;
 
     this.data$.pipe(takeWhile(() => this.isComponentActive))
-    .subscribe(newData => (
-      this.chart.data = newData
-    ));
+      .subscribe(newData => (
+        this.chart.data = newData
+      ));
   }
 
   public ngOnDestroy(): void {

@@ -21,7 +21,7 @@ describe('StocksComponent', () => {
         { provide: FormBuilder, useValue: formBuilder }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

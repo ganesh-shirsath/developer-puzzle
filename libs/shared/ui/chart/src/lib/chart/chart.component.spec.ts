@@ -17,7 +17,7 @@ describe('ChartComponent', () => {
         GoogleChartsModule.forRoot()
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
