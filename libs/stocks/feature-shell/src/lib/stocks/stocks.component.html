@@ -1,6 +1,6 @@
 <form [formGroup]="stockPickerForm">
   <mat-form-field>
-    <input matInput placeholder="{{formPlaceholders?.SYMBOL_PLACEHOLDER}}" formControlName="symbol" value="" />
+    <input id="stock-symbol" matInput placeholder="{{formPlaceholders?.SYMBOL_PLACEHOLDER}}" formControlName="symbol" value="" />
     <mat-error>
       <span *ngIf="
           !stockPickerForm.get('symbol').valid &&
@@ -11,7 +11,7 @@
 
   <mat-form-field>
     <mat-label>{{formLabels.TIME_PERIOD_LABEL}}</mat-label>
-    <mat-select formControlName="period">
+    <mat-select id="stock-period" formControlName="period">
       <mat-option *ngFor="let timePeriod of timePeriods" [value]="timePeriod.value">
         {{ timePeriod.viewValue }}
       </mat-option>

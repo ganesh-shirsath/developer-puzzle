@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { StocksFeatureShellModule } from '../../../../../stocks/feature-shell/src/lib/stocks-feature-shell.module';
 import { PriceQueryFacade } from '../../../../data-access-price-query/src';
 import { FormBuilder, Validators } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 describe('StocksComponent', () => {
   let component: StocksComponent;
   let fixture: ComponentFixture<StocksComponent>;
@@ -13,6 +14,7 @@ describe('StocksComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        NoopAnimationsModule,
         StocksFeatureShellModule,
         StoreModule.forRoot({})
       ],
@@ -63,6 +65,20 @@ describe('StocksComponent', () => {
       expect(component['isComponentActive']).toBe(true);
       component.ngOnDestroy();
       expect(component['isComponentActive']).toBe(false);
+    });
+  });
+
+  describe('ngOnInit()', () => {
+    it('should invoke fetchQuote function in form changes detected', () => {
+      fixture.detectChanges();
+      spyOn(component as any, 'fetchQuote').and.stub();
+      component.stockPickerForm.controls['symbol'].setValue('test');
+      component.stockPickerForm.controls['period'].setValue('Five Years');
+      fixture.detectChanges();
+      component.ngOnInit();
+      fixture.whenStable().then(() => {
+        expect(component['fetchQuote']).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
